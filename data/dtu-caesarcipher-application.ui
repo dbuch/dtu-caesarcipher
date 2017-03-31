@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="DtuCaesarcipherAppWin" parent="GtkApplicationWindow">
+    <property name="can_focus">False</property>
+    <property name="default_width">600</property>
+    <property name="default_height">400</property>
+    <child>
+      <object class="GtkStack" id="stack_view">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="transition_type">crossfade</property>
+        <property name="transition_duration">1000</property>
+        <property name="margin_top">2</property>
+        <property name="margin_bottom">2</property>
+        <property name="margin_left">2</property>
+        <property name="margin_right">2</property>
+        <child>
+          <object class="GtkTextView" id="encrypted_view">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="name">encrypted_view</property>
+            <property name="title" translatable="yes">Encrypted</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTextView" id="result_view">
+            <property name="visible">True</property>
+            <property name="editable">False</property>
+          </object>
+          <packing>
+            <property name="name">result_view</property>
+            <property name="title" translatable="yes">Result</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="preferences_view">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="margin">6</property>
+            <property name="row-spacing">12</property>
+            <property name="column-spacing">6</property>
+            <child>
+              <object class="GtkLabel" id="language_lbl">
+                <property name="visible">True</property>
+                <property name="label">Language:</property>
+                <property name="use-underline">True</property>
+                <property name="xalign">1</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="name">preferences_view</property>
+            <property name="title" translatable="yes">Preferences</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child type="titlebar">
+      <object class="GtkHeaderBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="title">CaesarCipher</property>
+        <property name="subtitle">DTU Education</property>
+        <property name="show_close_button">True</property>
+        <child>
+          <object class="GtkToggleButton" id="preferences_btn">
+            <property name="visible">True</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">preferences-system-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="DtuCaesarcipherCrackbutton" id="crack_btn">
+            <property name="label" translatable="yes">Crack it!</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="key_lbl">
+            <property name="visible">True</property>
+            <property name="label"></property>
+          </object>
+          <packing>
+            <property name="pack_type">start</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSpinner" id="spinner">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="pack_type">start</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

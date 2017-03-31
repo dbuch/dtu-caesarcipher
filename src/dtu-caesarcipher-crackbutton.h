@@ -1,4 +1,4 @@
-/* dtu-caesarcipher-app.h
+/* dtu-caesarcipher-crackbutton.h
  *
  * Copyright (C) 2017 Daniel Buch <boogiewasthere@gmail.com>
  *
@@ -16,21 +16,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DTU_CAESARCIPHER_APP_H
-#define DTU_CAESARCIPHER_APP_H
+#ifndef DTU_CAESARCIPHER_CRACKBUTTON_H
+#define DTU_CAESARCIPHER_CRACKBUTTON_H
 
-#include <glib-object.h>
 #include <gtk/gtk.h>
+#include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define DTU_TYPE_CAESARCIPHER_APP (dtu_caesarcipher_app_get_type())
+#define DTU_TYPE_CAESARCIPHER_CRACKBUTTON (dtu_caesarcipher_crackbutton_get_type())
 
-G_DECLARE_FINAL_TYPE (DtuCaesarcipherApp, dtu_caesarcipher_app, DTU, CAESARCIPHER_APP, GtkApplication)
+G_DECLARE_FINAL_TYPE (DtuCaesarcipherCrackbutton, dtu_caesarcipher_crackbutton, DTU, CAESARCIPHER_CRACKBUTTON, GtkButton)
 
-DtuCaesarcipherApp *dtu_caesarcipher_app_new (void);
+DtuCaesarcipherCrackbutton *dtu_caesarcipher_crackbutton_new (void);
 
 G_END_DECLS
 
-#endif /* DTU_CAESARCIPHER_APP_H */
+#endif /* DTU_CAESARCIPHER_CRACKBUTTON_H */
 

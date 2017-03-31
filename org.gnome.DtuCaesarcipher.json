@@ -40,6 +40,17 @@
     ],
     "modules": [
         {
+            "name": "gspell",
+            "config-opts": [ "--disable-gtk-doc", "--disable-gtk-doc-html" ],
+            "cleanup": [ "/include", "/lib/pkgconfig", "*.la", "/share" ],
+            "sources": [
+                {
+                     "type": "git",
+                     "url": "https://git.gnome.org/browse/gspell"
+                }
+            ]
+        },
+        {
             "name": "dtu-caesarcipher",
             "sources": [
                     {

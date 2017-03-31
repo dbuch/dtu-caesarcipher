@@ -1,4 +1,4 @@
-/* dtu-caesarcipher-app.h
+/* dtu-caesarcipher-language.h
  *
  * Copyright (C) 2017 Daniel Buch <boogiewasthere@gmail.com>
  *
@@ -16,21 +16,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DTU_CAESARCIPHER_APP_H
-#define DTU_CAESARCIPHER_APP_H
+#ifndef DTU_CAESARCIPHER_LANGUAGE_H
+#define DTU_CAESARCIPHER_LANGUAGE_H
 
+#include <gspell/gspell.h>
 #include <glib-object.h>
-#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
-#define DTU_TYPE_CAESARCIPHER_APP (dtu_caesarcipher_app_get_type())
+#define DTU_TYPE_CAESARCIPHER_LANGUAGE (dtu_caesarcipher_language_get_type())
 
-G_DECLARE_FINAL_TYPE (DtuCaesarcipherApp, dtu_caesarcipher_app, DTU, CAESARCIPHER_APP, GtkApplication)
+G_DECLARE_FINAL_TYPE (DtuCaesarcipherLanguage, dtu_caesarcipher_language, DTU, CAESARCIPHER_LANGUAGE, GtkComboBox)
 
-DtuCaesarcipherApp *dtu_caesarcipher_app_new (void);
+DtuCaesarcipherLanguage *dtu_caesarcipher_language_new (void);
 
 G_END_DECLS
 
-#endif /* DTU_CAESARCIPHER_APP_H */
+#endif /* DTU_CAESARCIPHER_LANGUAGE_H */
 

@@ -21,10 +21,26 @@
 
 #include <glib-object.h>
 #include <gtk/gtk.h>
+#include "dtu-caesarcipher-language.h"
 
 G_BEGIN_DECLS
 
 #define DTU_TYPE_CAESARCIPHER_APP_WIN (dtu_caesarcipher_app_win_get_type())
+
+struct _DtuCaesarcipherAppWin
+{
+  GtkApplicationWindow parent_instance;
+
+  GtkButton *crack_btn;
+  GtkStack  *stack_view;
+  GtkTextView *result_view;
+  GtkTextView *encrypted_view;
+  GtkSpinner *spinner;
+  GtkLabel *key_lbl;
+  GtkToggleButton *preferences_btn;
+  GtkWidget *languages;
+  GtkGrid *preferences_view;
+};
 
 G_DECLARE_FINAL_TYPE (DtuCaesarcipherAppWin, dtu_caesarcipher_app_win, DTU, CAESARCIPHER_APP_WIN, GtkApplicationWindow)
 
