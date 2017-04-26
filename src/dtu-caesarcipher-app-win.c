@@ -19,6 +19,7 @@
 #include "dtu-caesarcipher-app-win.h"
 #include "dtu-caesarcipher.h"
 #include "dtu-caesarcipher-language.h"
+#include "dtu-caesarcipher-crackbutton.h"
 #include <gspell/gspell.h>
 
 typedef struct
@@ -67,6 +68,7 @@ dtu_caesarcipher_app_win_class_init (DtuCaesarcipherAppWinClass *klass)
 static void
 dtu_caesarcipher_app_win_init (DtuCaesarcipherAppWin *self)
 {
+  g_type_ensure (DTU_TYPE_CAESARCIPHER_CRACKBUTTON);
   gtk_widget_init_template (GTK_WIDGET(self));
 
   self->languages = gspell_language_chooser_button_new (NULL);

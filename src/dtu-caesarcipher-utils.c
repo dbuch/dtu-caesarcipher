@@ -1,4 +1,4 @@
-/* dtu-caesarcipher-crackbutton.h
+/* dtu-caesarcipher-utils.c
  *
  * Copyright (C) 2017 Daniel Buch <boogiewasthere@gmail.com>
  *
@@ -16,26 +16,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DTU_CAESARCIPHER_CRACKBUTTON_H
-#define DTU_CAESARCIPHER_CRACKBUTTON_H
-
 #include <gtk/gtk.h>
-#include <glib-object.h>
 
-G_BEGIN_DECLS
-
-#define DTU_TYPE_CAESARCIPHER_CRACKBUTTON (dtu_caesarcipher_crackbutton_get_type())
-
-struct _DtuCaesarcipherCrackbutton
+static GtkWidget **__widget_collection_new_ap(GtkWidget *widget,
+                                             va_list    ap)
 {
-  GtkButton parent_instance;
-};
+  va_list aq;
+  GtkWidget *iter, **res;
+  gint n = 0;
 
-G_DECLARE_FINAL_TYPE (DtuCaesarcipherCrackbutton, dtu_caesarcipher_crackbutton, DTU, CAESARCIPHER_CRACKBUTTON, GtkButton)
+  va_copy (aq, ap);
 
-DtuCaesarcipherCrackbutton *dtu_caesarcipher_crackbutton_new (void);
+  while((iter = va_arg(aq, GtkWidget*)))
+      n++;
 
-G_END_DECLS
+  va_end(aq);
 
-#endif /* DTU_CAESARCIPHER_CRACKBUTTON_H */
+  res = g_malloc((n+1) * sizeof(GtkWidget*));
 
+  n = 0;
+  iter = NULL;
+  while((iter = va_arg(ap, GtkWidget*)))
+    {
+      res[n++] = iter;
+    }
+
+  return res;
+}
+
+GtkWidget **widget_collection_new(GtkWidget *widget,
+                                 ...)
+{
+  GtkWidget **ret = NULL;
+  va_list ap;
+
+  va_start (ap, widget);
+
+  ret = __widget_collection_new_ap (widget, ap);
+
+  va_end (ap);
+}

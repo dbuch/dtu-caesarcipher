@@ -16,8 +16,11 @@ dtu_caesarcipher_SOURCES =  \
 	dtu-caesarcipher-language.h \
 	dtu-caesarcipher-app.c \
 	dtu-caesarcipher-app.h \
+	dtu-caesarcipher-perspective.c \
+	dtu-caesarcipher-perspective.h \
 	dtu-caesarcipher-app-win.c \
 	dtu-caesarcipher-app-win.h \
+	dtu-caesarcipher-utils.c \
 	main.c
 dtu_caesarcipher_CFLAGS = $(DTU_CAESARCIPHER_CFLAGS)
 

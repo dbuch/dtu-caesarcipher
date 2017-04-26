@@ -18,16 +18,23 @@
 
 #include "dtu-caesarcipher-crackbutton.h"
 
-struct _DtuCaesarcipherCrackbutton
+typedef struct
 {
-  GtkButton parent_instance;
-};
+  gint current_state;
 
-G_DEFINE_TYPE (DtuCaesarcipherCrackbutton, dtu_caesarcipher_crackbutton, GTK_TYPE_BUTTON)
+} DtuCaesarcipherCrackbuttonPrivate;
+
+G_DEFINE_TYPE_WITH_PRIVATE (DtuCaesarcipherCrackbutton, dtu_caesarcipher_crackbutton, GTK_TYPE_BUTTON)
 
 enum {
   PROP_0,
+  PROP_STATE,
   N_PROPS
+};
+
+enum {
+  STATE_CRACK,
+  STATE_BACK,
 };
 
 static GParamSpec *properties [N_PROPS];
@@ -53,9 +60,13 @@ dtu_caesarcipher_crackbutton_get_property (GObject    *object,
                                            GParamSpec *pspec)
 {
   DtuCaesarcipherCrackbutton *self = DTU_CAESARCIPHER_CRACKBUTTON (object);
+  DtuCaesarcipherCrackbuttonPrivate *priv = dtu_caesarcipher_crackbutton_get_instance_private (self);
 
   switch (prop_id)
     {
+    case PROP_STATE:
+      g_value_set_int (value, priv->current_state);
+    break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -68,9 +79,14 @@ dtu_caesarcipher_crackbutton_set_property (GObject      *object,
                                            GParamSpec   *pspec)
 {
   DtuCaesarcipherCrackbutton *self = DTU_CAESARCIPHER_CRACKBUTTON (object);
+  DtuCaesarcipherCrackbuttonPrivate *priv = dtu_caesarcipher_crackbutton_get_instance_private (self);
+
 
   switch (prop_id)
     {
+    case PROP_STATE:
+      priv->current_state = g_value_get_int (value);
+    break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -81,11 +97,18 @@ dtu_caesarcipher_crackbutton_class_init (DtuCaesarcipherCrackbuttonClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+  GtkButtonClass *button_class = GTK_BUTTON_CLASS (klass);
 
   object_class->finalize = dtu_caesarcipher_crackbutton_finalize;
   object_class->get_property = dtu_caesarcipher_crackbutton_get_property;
   object_class->set_property = dtu_caesarcipher_crackbutton_set_property;
 
+  properties [PROP_STATE] =
+    g_param_spec_int ("state", "State", "CrackButtonState",
+                      STATE_CRACK, STATE_BACK, STATE_CRACK,
+                      G_PARAM_READWRITE);
+
+  g_object_class_install_properties (object_class, N_PROPS, properties);
 }
 
 static void

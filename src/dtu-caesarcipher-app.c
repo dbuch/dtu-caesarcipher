@@ -71,11 +71,14 @@ crack_finished_cb(GObject *object,
       gtk_stack_set_visible_child_name (widgets->win->stack_view, "result_view");
     }
   else
-    {
       gtk_label_set_text (widgets->win->key_lbl, error->message);
-    }
+
   gtk_spinner_stop(widgets->win->spinner);
+
   gtk_button_set_label (widgets->win->crack_btn, "Back");
+  g_object_set (widgets->win->key_lbl,
+                "visible", TRUE,
+                NULL);
 }
 
 static void
@@ -91,6 +94,9 @@ crack_btn_clicked_cb(GtkButton *btn,
   else
     {
       gtk_stack_set_visible_child_name (container->win->stack_view, "encrypted_view");
+      g_object_set (container->win->key_lbl,
+                    "visible", FALSE,
+                    NULL);
       gtk_label_set_text (container->win->key_lbl, "");
       gtk_button_set_label (container->win->crack_btn, "Crack it!");
 
@@ -113,7 +119,6 @@ key_changed_cb(GObject *obj,
   GtkLabel *lbl = GTK_LABEL(user_data);
 
   g_autofree gchar *string = g_strdup_printf ("Key: %d", self->key);
-
   gtk_label_set_text (lbl, string);
 }
 
@@ -131,13 +136,24 @@ properties_view_cb(GtkToggleButton *btn,
   DtuCaesarcipherAppWin *win = DTU_CAESARCIPHER_APP_WIN(user_data);
 
   guint previous_duration = gtk_stack_get_transition_duration (win->stack_view);
+  GtkWidget *current_active = gtk_stack_get_visible_child (win->stack_view);
 
   gtk_stack_set_transition_duration (win->stack_view, 200);
 
   if(gtk_toggle_button_get_active (btn))
-    gtk_stack_set_visible_child_name (win->stack_view, "preferences_view");
+    {
+      gtk_stack_set_visible_child_name (win->stack_view, "preferences_view");
+      g_object_set (G_OBJECT (win->crack_btn),
+                    "visible", FALSE,
+                    NULL);
+    }
   else
-    gtk_stack_set_visible_child_name (win->stack_view, "encrypted_view");
+    {
+      gtk_stack_set_visible_child_name (win->stack_view, "encrypted_view");
+      g_object_set (G_OBJECT (win->crack_btn),
+                    "visible", TRUE,
+                    NULL);
+    }
 
   gtk_stack_set_transition_duration (win->stack_view, previous_duration);
 
@@ -148,7 +164,6 @@ dtu_caesarcipher_app_activate(GApplication *app)
 {
   DtuCaesarcipherAppWin *win = dtu_caesarcipher_app_win_new (GTK_APPLICATION(app));
   DtuCaesarcipher *caesar_cipher = dtu_caesarcipher_new();
-
 
   g_signal_connect(G_OBJECT(win->preferences_btn), "toggled", G_CALLBACK(properties_view_cb), win);
 

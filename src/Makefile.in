@@ -121,7 +121,9 @@ am_dtu_caesarcipher_OBJECTS = $(am__objects_1) \
 	dtu_caesarcipher-dtu-caesarcipher-crackbutton.$(OBJEXT) \
 	dtu_caesarcipher-dtu-caesarcipher-language.$(OBJEXT) \
 	dtu_caesarcipher-dtu-caesarcipher-app.$(OBJEXT) \
+	dtu_caesarcipher-dtu-caesarcipher-perspective.$(OBJEXT) \
 	dtu_caesarcipher-dtu-caesarcipher-app-win.$(OBJEXT) \
+	dtu_caesarcipher-dtu-caesarcipher-utils.$(OBJEXT) \
 	dtu_caesarcipher-main.$(OBJEXT)
 dtu_caesarcipher_OBJECTS = $(am_dtu_caesarcipher_OBJECTS)
 am__DEPENDENCIES_1 =
@@ -374,8 +376,11 @@ dtu_caesarcipher_SOURCES = \
 	dtu-caesarcipher-language.h \
 	dtu-caesarcipher-app.c \
 	dtu-caesarcipher-app.h \
+	dtu-caesarcipher-perspective.c \
+	dtu-caesarcipher-perspective.h \
 	dtu-caesarcipher-app-win.c \
 	dtu-caesarcipher-app-win.h \
+	dtu-caesarcipher-utils.c \
 	main.c
 
 dtu_caesarcipher_CFLAGS = $(DTU_CAESARCIPHER_CFLAGS)
@@ -478,6 +483,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-app.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-crackbutton.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-language.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-perspective.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-utils.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dtu_caesarcipher-resources.Po@am__quote@
@@ -576,6 +583,20 @@ dtu_caesarcipher-dtu-caesarcipher-app.obj: dtu-caesarcipher-app.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -c -o dtu_caesarcipher-dtu-caesarcipher-app.obj `if test -f 'dtu-caesarcipher-app.c'; then $(CYGPATH_W) 'dtu-caesarcipher-app.c'; else $(CYGPATH_W) '$(srcdir)/dtu-caesarcipher-app.c'; fi`
 
+dtu_caesarcipher-dtu-caesarcipher-perspective.o: dtu-caesarcipher-perspective.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -MT dtu_caesarcipher-dtu-caesarcipher-perspective.o -MD -MP -MF $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-perspective.Tpo -c -o dtu_caesarcipher-dtu-caesarcipher-perspective.o `test -f 'dtu-caesarcipher-perspective.c' || echo '$(srcdir)/'`dtu-caesarcipher-perspective.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-perspective.Tpo $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-perspective.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='dtu-caesarcipher-perspective.c' object='dtu_caesarcipher-dtu-caesarcipher-perspective.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -c -o dtu_caesarcipher-dtu-caesarcipher-perspective.o `test -f 'dtu-caesarcipher-perspective.c' || echo '$(srcdir)/'`dtu-caesarcipher-perspective.c
+
+dtu_caesarcipher-dtu-caesarcipher-perspective.obj: dtu-caesarcipher-perspective.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -MT dtu_caesarcipher-dtu-caesarcipher-perspective.obj -MD -MP -MF $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-perspective.Tpo -c -o dtu_caesarcipher-dtu-caesarcipher-perspective.obj `if test -f 'dtu-caesarcipher-perspective.c'; then $(CYGPATH_W) 'dtu-caesarcipher-perspective.c'; else $(CYGPATH_W) '$(srcdir)/dtu-caesarcipher-perspective.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-perspective.Tpo $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-perspective.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='dtu-caesarcipher-perspective.c' object='dtu_caesarcipher-dtu-caesarcipher-perspective.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -c -o dtu_caesarcipher-dtu-caesarcipher-perspective.obj `if test -f 'dtu-caesarcipher-perspective.c'; then $(CYGPATH_W) 'dtu-caesarcipher-perspective.c'; else $(CYGPATH_W) '$(srcdir)/dtu-caesarcipher-perspective.c'; fi`
+
 dtu_caesarcipher-dtu-caesarcipher-app-win.o: dtu-caesarcipher-app-win.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -MT dtu_caesarcipher-dtu-caesarcipher-app-win.o -MD -MP -MF $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-app-win.Tpo -c -o dtu_caesarcipher-dtu-caesarcipher-app-win.o `test -f 'dtu-caesarcipher-app-win.c' || echo '$(srcdir)/'`dtu-caesarcipher-app-win.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-app-win.Tpo $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-app-win.Po
@@ -589,6 +610,20 @@ dtu_caesarcipher-dtu-caesarcipher-app-win.obj: dtu-caesarcipher-app-win.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='dtu-caesarcipher-app-win.c' object='dtu_caesarcipher-dtu-caesarcipher-app-win.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -c -o dtu_caesarcipher-dtu-caesarcipher-app-win.obj `if test -f 'dtu-caesarcipher-app-win.c'; then $(CYGPATH_W) 'dtu-caesarcipher-app-win.c'; else $(CYGPATH_W) '$(srcdir)/dtu-caesarcipher-app-win.c'; fi`
+
+dtu_caesarcipher-dtu-caesarcipher-utils.o: dtu-caesarcipher-utils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -MT dtu_caesarcipher-dtu-caesarcipher-utils.o -MD -MP -MF $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-utils.Tpo -c -o dtu_caesarcipher-dtu-caesarcipher-utils.o `test -f 'dtu-caesarcipher-utils.c' || echo '$(srcdir)/'`dtu-caesarcipher-utils.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-utils.Tpo $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-utils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='dtu-caesarcipher-utils.c' object='dtu_caesarcipher-dtu-caesarcipher-utils.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -c -o dtu_caesarcipher-dtu-caesarcipher-utils.o `test -f 'dtu-caesarcipher-utils.c' || echo '$(srcdir)/'`dtu-caesarcipher-utils.c
+
+dtu_caesarcipher-dtu-caesarcipher-utils.obj: dtu-caesarcipher-utils.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -MT dtu_caesarcipher-dtu-caesarcipher-utils.obj -MD -MP -MF $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-utils.Tpo -c -o dtu_caesarcipher-dtu-caesarcipher-utils.obj `if test -f 'dtu-caesarcipher-utils.c'; then $(CYGPATH_W) 'dtu-caesarcipher-utils.c'; else $(CYGPATH_W) '$(srcdir)/dtu-caesarcipher-utils.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-utils.Tpo $(DEPDIR)/dtu_caesarcipher-dtu-caesarcipher-utils.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='dtu-caesarcipher-utils.c' object='dtu_caesarcipher-dtu-caesarcipher-utils.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -c -o dtu_caesarcipher-dtu-caesarcipher-utils.obj `if test -f 'dtu-caesarcipher-utils.c'; then $(CYGPATH_W) 'dtu-caesarcipher-utils.c'; else $(CYGPATH_W) '$(srcdir)/dtu-caesarcipher-utils.c'; fi`
 
 dtu_caesarcipher-main.o: main.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(dtu_caesarcipher_CFLAGS) $(CFLAGS) -MT dtu_caesarcipher-main.o -MD -MP -MF $(DEPDIR)/dtu_caesarcipher-main.Tpo -c -o dtu_caesarcipher-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c

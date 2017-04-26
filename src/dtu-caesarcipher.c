@@ -217,10 +217,9 @@ dtu_caesarcipher_crack(DtuCaesarcipher *self)
 
       for(gchar **s = strv; *s; s++)
         {
-          gchar *word = *s;
+          gchar  *word = *s;
+          gint    word_len = g_strlen(word);
           GError *error = NULL;
-          gint word_len = g_strlen(word);
-
 
           if(gspell_checker_check_word(priv->spell_checker, word, word_len, &error))
             matches++;

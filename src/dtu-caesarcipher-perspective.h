@@ -1,4 +1,4 @@
-/* dtu-caesarcipher-crackbutton.h
+/* dtu-caesarcipher-perspective.h
  *
  * Copyright (C) 2017 Daniel Buch <boogiewasthere@gmail.com>
  *
@@ -16,26 +16,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DTU_CAESARCIPHER_CRACKBUTTON_H
-#define DTU_CAESARCIPHER_CRACKBUTTON_H
+#ifndef DTU_CAESARCIPHER_PERSPECTIVE_H
+#define DTU_CAESARCIPHER_PERSPECTIVE_H
 
 #include <gtk/gtk.h>
-#include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define DTU_TYPE_CAESARCIPHER_CRACKBUTTON (dtu_caesarcipher_crackbutton_get_type())
+#define DTU_TYPE_CAESARCIPHER_PERSPECTIVE (dtu_caesarcipher_perspective_get_type())
 
-struct _DtuCaesarcipherCrackbutton
+G_DECLARE_DERIVABLE_TYPE (DtuCaesarcipherPerspective, dtu_caesarcipher_perspective, DTU, CAESARCIPHER_PERSPECTIVE, GtkStack)
+
+struct _DtuCaesarcipherPerspectiveClass
 {
-  GtkButton parent_instance;
+	GtkStackClass parent;
+
+	void (*switch_to) (DtuCaesarcipherPerspective *self,
+			   GtkWidget *page);
+
+	gpointer padding[10];
 };
 
-G_DECLARE_FINAL_TYPE (DtuCaesarcipherCrackbutton, dtu_caesarcipher_crackbutton, DTU, CAESARCIPHER_CRACKBUTTON, GtkButton)
-
-DtuCaesarcipherCrackbutton *dtu_caesarcipher_crackbutton_new (void);
+DtuCaesarcipherPerspective *dtu_caesarcipher_perspective_new (void);
+void dtu_caesarcipher_perspective_switch(DtuCaesarcipherPerspective *self, GtkWidget *page);
 
 G_END_DECLS
 
-#endif /* DTU_CAESARCIPHER_CRACKBUTTON_H */
+#endif /* DTU_CAESARCIPHER_PERSPECTIVE_H */
 
